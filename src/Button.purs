@@ -1,0 +1,36 @@
+module Button (button, Message(..), withMessage, withLabel, newArgs, Args) where
+
+import Flame (Html)
+import Flame.Html.Attribute as HA
+import Flame.Html.Element as HE
+
+-- | This datatype is used to signal events to `update`
+data Message =
+  Increment
+  | Decrement
+  | Nothing
+
+type Args = {
+  message ∷ Message
+  , label ∷ String
+  }
+
+newArgs ∷ Args
+newArgs = {
+  message: Nothing
+  , label: ""
+  }
+
+withMessage ∷ Message → Args → Args
+withMessage message args = args {
+    message = message
+  }
+
+type Label = String
+withLabel ∷ Label → Args → Args
+withLabel label args = args {
+    label = label
+  }
+
+button ∷ Args → Html Message
+button { message, label } = HE.button [ HA.onClick message ] label

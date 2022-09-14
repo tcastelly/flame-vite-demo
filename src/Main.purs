@@ -3,8 +3,8 @@ module Main where
 
 import Prelude
 
-import Button (Message)
-import Button as Button
+import IncDecButton (Message(..))
+import IncDecButton as Button
 import Effect (Effect)
 import Flame (QuerySelector(..), Html)
 import Flame.Application.NoEffects as FAN
@@ -21,9 +21,9 @@ init = 0
 
 -- | `update` is called to handle events
 update ∷ Model → Message → Model
-update model Button.Increment = model + 1
-update model Button.Decrement = model - 1
-update model Button.Nothing = model
+update model Increment = model + 1
+update model Decrement = model - 1
+update model Nothing = model
 
 button ∷ Button.Args → Html Message
 button { message, label } = HE.button [HA.onClick message ] label
@@ -31,13 +31,13 @@ button { message, label } = HE.button [HA.onClick message ] label
 incrementButton ∷ Html Message
 incrementButton = Button.newArgs
   # Button.withLabel "+"
-  # Button.withMessage Button.Increment
+  # Button.withMessage Increment
   # Button.button
 
 decrementButton ∷ Html Message
 decrementButton = Button.newArgs
   # Button.withLabel "-"
-  # Button.withMessage Button.Decrement
+  # Button.withMessage Decrement
   # Button.button
 
 -- | `view` updates the app markup whenever the model is updated

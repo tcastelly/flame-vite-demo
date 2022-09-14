@@ -1,4 +1,4 @@
-module Button (button, Message(..), withMessage, withLabel, newArgs, Args) where
+module IncDecButton (button, Message(..), withMessage, withLabel, newArgs, Args) where
 
 import Flame (Html)
 import Flame.Html.Attribute as HA

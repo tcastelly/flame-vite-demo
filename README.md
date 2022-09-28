@@ -1,5 +1,10 @@
 # Flame serves by Vite
 
+using:
+- [Flame](https://github.com/easafe/purescript-flame)
+- [Vite](https://github.com/vitejs/vite)
+- [Tailwind](https://github.com/tailwindlabs/tailwindcss)
+
 ## start dev
 > npm run dev
 

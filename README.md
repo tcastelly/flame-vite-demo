@@ -5,6 +5,9 @@ using:
 - [Vite](https://github.com/vitejs/vite)
 - [Tailwind](https://github.com/tailwindlabs/tailwindcss)
 
+## install
+> npm ci
+
 ## start dev
 > npm run dev
 

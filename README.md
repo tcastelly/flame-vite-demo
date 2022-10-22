@@ -14,5 +14,7 @@ using:
 ## build
 > npm run build
 
+(serve dist folder)
+
 ## local url
 http://127.0.0.1:3535/

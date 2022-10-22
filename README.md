@@ -13,3 +13,6 @@ using:
 
 ## build
 > npm run build
+
+## local url
+http://127.0.0.1:3535/

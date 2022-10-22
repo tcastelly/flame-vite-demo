@@ -44,7 +44,7 @@ decrementButton = Button.newArgs
 view ∷ Model → Html Message
 view model = HE.main "main"
       [ decrementButton
-      , viewSpan model "bg-blue-500"
+      , viewSpan model "text-center inline-block w-[40px]"
       , incrementButton
       ]
 

@@ -16,17 +16,17 @@
     "build:vite": "vite build",
     "clean": "rimraf dist",
     "dev": "node dev.js",
-    "dev:vite": "vite",
     "dev:spago": "spago bundle-app --to dist/index.js --watch",
     "dev:tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "dev:vite": "vite",
     "prepreview": "npm run build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.33",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
     "rimraf": "^5.0.5",
-    "tailwindcss": "^3.4.1",
-    "vite": "^5.0.12"
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.11"
   }
 }

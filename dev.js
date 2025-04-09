@@ -45,9 +45,9 @@ const spawnBuildPurs = () => {
   })
 }
 
-watch('src', (eventType, fileName) => {
+watch('src', async (eventType, fileName) => {
   if(path.extname(fileName) === '.purs') {
-    spawnBuildPurs();
+    await spawnBuildPurs();
   }
 });
 

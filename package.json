@@ -11,11 +11,10 @@
   "scripts": {
     "prebuild": "npm run clean",
     "build": "npm run build:purs && npm run build:vite",
-    "build:purs": "spago bundle-app --to dist/index.js",
+    "build:purs": "spago bundle --outfile src/index.js",
     "build:vite": "vite build",
     "clean": "rimraf dist",
     "dev": "node dev.js",
-    "dev:spago": "spago bundle-app --to dist/index.js --watch",
     "dev:vite": "vite",
     "prepreview": "npm run build",
     "preview": "vite preview"

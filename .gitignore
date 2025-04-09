@@ -11,3 +11,6 @@
 /.spago
 /dist
 .idea
+
+# purescript build
+/src/index.js

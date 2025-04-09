@@ -1,4 +1,6 @@
 import { spawn } from 'child_process';
+import { watch } from 'fs'
+import path from 'path'
 
 const reset = '\x1b[0m';
 const bright = '\x1b[1m';
@@ -26,17 +28,40 @@ const bgWhite = '\x1b[47m';
 
 const colors = [fgCyan, fgBlue, fgYellow];
 
-[
-  spawn('npm', ['run', 'dev:spago']),
-  spawn('npm', ['run', 'dev:tailwind']),
-  spawn('npm', ['run', 'dev:vite']),
-].forEach((run, i) => {
-  run.stdout.on('data', (data) => {
-    console.log(colors[i], data.toString());
-  });
+const spawnBuildPurs = () => {
+  return new Promise((resolve, reject) => {
+    return [
+      spawn('npm', ['run', 'build:purs']),
+    ].forEach((run, i) => {
+      run.stdout.on('data', (data) => {
+        console.log(colors[i], data.toString());
+      });
 
-  run.stderr.on('data', (data) => {
-    console.error(colors[i], data.toString());
+      run.stderr.on('data', (data) => {
+        console.error(colors[i], data.toString());
+        resolve({});
+      });
+    });
+  })
+}
+
+watch('src', (eventType, fileName) => {
+  if(path.extname(fileName) === '.purs') {
+    spawnBuildPurs();
+  }
+});
+
+spawnBuildPurs().then(() => {
+  return [
+    spawn('npm', ['run', 'dev:vite']),
+  ].forEach((run, i) => {
+    run.stdout.on('data', (data) => {
+      console.log(colors[i], data.toString());
+    });
+
+    run.stderr.on('data', (data) => {
+      console.error(colors[i], data.toString());
+    });
   });
 });
 

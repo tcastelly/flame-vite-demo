@@ -1,0 +1,14 @@
+package:
+  name: sandbox-flame
+  dependencies:
+    - console
+    - effect
+    - flame
+    - prelude
+  test:
+    main: Test.Main
+    dependencies: []
+workspace:
+  packageSet:
+    registry: 63.9.1
+  extraPackages: {}

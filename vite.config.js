@@ -8,9 +8,4 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-  build: {
-    watch: {
-      include: 'src/index.js'
-    },
-  }
 });
